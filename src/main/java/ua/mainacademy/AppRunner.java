@@ -1,6 +1,9 @@
 package ua.mainacademy;
 
+import org.jsoup.nodes.Document;
 import ua.mainacademy.model.Item;
+import ua.mainacademy.parser.PageParser;
+import ua.mainacademy.service.DocumentExtractorService;
 import ua.mainacademy.service.RouterService;
 
 import java.util.ArrayList;
@@ -41,7 +44,7 @@ public class AppRunner {
 
         System.out.println("Items were extracted. Amount=" + items.size());
         for (Item i:items) {
-            System.out.println(i.getCode() + " :" + i.getName() +"/n");
+            System.out.println(i.getCode() + " : " + i.getName());
         }
 
     }

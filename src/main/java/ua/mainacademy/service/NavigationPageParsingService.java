@@ -40,7 +40,7 @@ public class NavigationPageParsingService extends Thread {
 //            if (threads.size() > 2) {
 //                return;
 //            }
-            for (int i = 1; i <= lastPage; i++) {
+            for (int i = 2; i <= lastPage; i++) {
                 String nextPageUrl = url + "page=" + i;
                 RouterService routerService = new RouterService(items, threads, nextPageUrl);
                 threads.add(routerService);

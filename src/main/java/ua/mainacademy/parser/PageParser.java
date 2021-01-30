@@ -7,7 +7,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import ua.mainacademy.model.Item;
-import ua.mainacademy.service.DocumentExtractorService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +48,8 @@ public class PageParser {
     }
 
     private String extractSeller(Document document) {
-        return document.getElementsByClass("logo logo--regular")
+        return document.getElementById("top")
+                .getElementsByClass("logo")
                 .first()
                 .getElementsByTag("strong")
                 .text();
