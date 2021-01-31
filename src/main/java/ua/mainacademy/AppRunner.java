@@ -1,9 +1,7 @@
 package ua.mainacademy;
 
-import org.jsoup.nodes.Document;
 import ua.mainacademy.model.Item;
-import ua.mainacademy.parser.PageParser;
-import ua.mainacademy.service.DocumentExtractorService;
+import ua.mainacademy.service.CrudOperationService;
 import ua.mainacademy.service.RouterService;
 
 import java.util.ArrayList;
@@ -15,17 +13,6 @@ public class AppRunner {
     public static void main(String[] args) {
 
         String url = "https://estore.ua/smartfony/iphone-12-pro-max/";
-//        String url1 = "https://estore.ua/iphone-12-pro-max-128gb-pacific-blue/";
-//
-//        Document document = DocumentExtractorService.getDocument(url);
-//        Document document1 = DocumentExtractorService.getDocument(url1);
-//
-//        PageParser pageParser = new PageParser(url, document1);
-//
-//        System.out.println(new NavigationPageParser(url, document).extractItemsLinks());
-//
-//        System.out.println(pageParser.getItemFromPage());
-
 
         List<Item> items = Collections.synchronizedList(new ArrayList<>());
         List<Thread> threads = Collections.synchronizedList(new ArrayList<>());
@@ -43,9 +30,19 @@ public class AppRunner {
         } while (!threadsAreNotActive(threads));
 
         System.out.println("Items were extracted. Amount=" + items.size());
-        for (Item i:items) {
+        for (Item i : items) {
             System.out.println(i.getCode() + " : " + i.getName());
         }
+//
+//        CrudOperationService.update(new Item(5, "220957", "iPhone 12 Pro Max 256GB Pacific Blue (MGDF3)"
+//                , 2, 2, "", "", "", ""));
+//
+//        CrudOperationService.delete(null);
+//        System.out.println(CrudOperationService.getItem(10));
+//
+        System.out.println(CrudOperationService.getItems());
+//
+//        CrudOperationService.deleteAllItems();
 
     }
 

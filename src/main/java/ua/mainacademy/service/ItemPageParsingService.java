@@ -7,6 +7,8 @@ import ua.mainacademy.parser.PageParser;
 
 import java.util.List;
 
+import static ua.mainacademy.service.CrudOperationService.create;
+
 @AllArgsConstructor
 public class ItemPageParsingService extends Thread {
 
@@ -20,6 +22,6 @@ public class ItemPageParsingService extends Thread {
 
     @Override
     public void run() {
-        items.add(new PageParser(url, document).getItemFromPage());
+        items.add(create(new PageParser(url, document).getItemFromPage()));
     }
 }

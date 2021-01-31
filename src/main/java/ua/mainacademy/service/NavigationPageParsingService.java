@@ -25,9 +25,9 @@ public class NavigationPageParsingService extends Thread {
         List<String> itemLinks = new NavigationPageParser(url, document).extractItemsLinks();
 
         for (String itemLink : itemLinks) {
-//            if (threads.size() > 5) {
-//                continue;
-//            }
+            if (threads.size() > 1) {
+                continue;
+            }
             RouterService routerService = new RouterService(items, threads, itemLink);
             threads.add(routerService);
             routerService.start();
@@ -37,9 +37,9 @@ public class NavigationPageParsingService extends Thread {
         if (!url.contains("page=")) {
             int lastPage = new  NavigationPageParser(url, document).getPagesCount();
 //
-//            if (threads.size() > 2) {
-//                return;
-//            }
+            if (threads.size() > 1) {
+                return;
+            }
             for (int i = 2; i <= lastPage; i++) {
                 String nextPageUrl = url + "page=" + i;
                 RouterService routerService = new RouterService(items, threads, nextPageUrl);

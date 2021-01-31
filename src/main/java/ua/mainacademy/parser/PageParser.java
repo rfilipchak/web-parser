@@ -6,6 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import ua.mainacademy.dao.ItemDAO;
 import ua.mainacademy.model.Item;
 
 import java.util.ArrayList;
